@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>任务三十八：UI组件之排序表格</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        table{
+            text-align:center;
+            border-collapse:collapse;
+            margin:50px;
+        }
+    </style>
+</head>
+<body>
+    <table id="tab"></table>
+
+    
+    <script>
+        (function () {
+            var config = {
+                tdWidth: '150px',
+                tdHeight: '55px',
+                rowNum: '5',
+                colNum: '5',
+                thBgc: '#333',
+                border: '1px solid #ccc',
+                thContent: ['姓名', '语文', '数学', '英语', '总分'],
+                trContent: [
+                    ['小明', 80, 90, 70, 240],
+                    ['小红', 90, 60, 90, 240],
+                    ['小亮', 60, 100, 70, 230],
+                    ['小强', 100, 70, 80, 250],
+                ],
+            },
+            tab = document.getElementById('tab');
+            addTh();
+            addTr();
+
+            function addTh() {
+                var thNode = document.createElement('tr'),
+                    tdList;
+                thNode = addTd(thNode, config.thContent);
+                thNode.style.background = config.thBgc;
+                thNode.style.color = '#fff';
+                thNode.style.fontWeight = "bold";
+                tdList = thNode.childNodes;
+                for (var i = 1; i < config.colNum; i++) {
+                    addArrowUp(tdList[i]);
+                    addArrowDown(tdList[i]);
+                }
+                tab.appendChild(thNode);
+
+                function addArrow(divNode, flag) {
+                    divNode.style.width = '0px';
+                    divNode.style.height = '0px';
+                    divNode.style.borderLeft = '8px solid transparent';
+                    divNode.style.borderRight = '8px solid transparent';
+                    divNode.style.cursor = 'pointer';
+                    divNode.style.position = "absolute";
+                    divNode.style.right = '30px';
+
+                    divNode.addEventListener('click', function (eve) {
+                        var content = eve.target.parentNode.innerHTML.split('<')[0],
+                            listNum = config.thContent.indexOf(content),
+                            sortList = [],
+                            newList = [],
+                            trList = tab.childNodes;
+
+                        for (var i = 0; i < config.rowNum - 1; i++) {
+                            sortList.push(trList[i + 1].childNodes[listNum].innerHTML);
+                        }
+                        newList = sortList.sort(sortNumber);
+                        if (!flag) {
+                            newList = newList.reverse();
+                        }
+                        sortList = [];
+                        for (var i = 0; i < config.rowNum-1; i++) {
+                            sortList.push(trList[i + 1].childNodes[listNum].innerHTML);
+                        }
+
+                        changeOrder(newList, sortList);
+
+                        function sortNumber(a, b) {
+                            return b - a;
+                        }
+                        function changeOrder(newList, oldList) {
+                            var len = newList.length,
+                            pos_before,
+                            pos_now,
+                            trList = tab.childNodes,
+                            tempNode = document.createElement('tr'),
+                            temp;
+                            for (var k = 0; k < len; k++) {
+                                pos_now = k;
+                                pos_before = oldList.indexOf(newList[k]);
+                                if (pos_now !== pos_before) {
+                                    tempNode.innerHTML = trList[pos_before + 1].innerHTML;
+                                    trList[pos_before + 1].innerHTML = trList[pos_now + 1].innerHTML;
+                                    trList[pos_now + 1].innerHTML = tempNode.innerHTML;
+
+                                    temp = oldList[pos_before];
+                                    oldList[pos_before] = oldList[pos_now];
+                                    oldList[pos_now] = temp;
+                                }
+                            }
+                        }
+                    }, false);
+                    return divNode;
+                }
+                function addArrowDown(tdNode) {
+                    var divNode = document.createElement('div');
+                    divNode = addArrow(divNode, true);
+                    divNode.style.borderTop = '10px solid #fff';
+                    divNode.style.top = '30px';
+                    tdNode.appendChild(divNode);
+                }
+                function addArrowUp(tdNode) {
+                    var divNode = document.createElement('div');
+                    divNode = addArrow(divNode, false);
+                    divNode.style.borderBottom = '10px solid #fff';
+                    divNode.style.top = '14px';
+                    tdNode.appendChild(divNode);
+                }
+            }
+            function addTd(rowNode, contentList) {
+                var tdNode;
+                for (var i = 0; i < config.colNum; i++) {
+                    tdNode = document.createElement('td');
+                    tdNode.innerHTML = contentList[i];
+                    tdNode.style.width = config.tdWidth;
+                    tdNode.style.height = config.tdHeight;
+                    tdNode.style.position = 'relative';
+                    rowNode.appendChild(tdNode);
+                }
+                return rowNode;
+            }
+            function addTr() {
+                var trNode;
+                for (var i = 0; i < config.rowNum - 1; i++) {
+                    trNode = document.createElement('tr');
+                    trNode=addTd(trNode, config.trContent[i]);
+                    tab.appendChild(trNode);
+                }
+            }
+        }());
+    </script>
+
+</body>
+</html>

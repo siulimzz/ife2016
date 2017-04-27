@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>任务十九：基础JavaScript练习（二）</title>
+    <style>
+        li {
+            display: inline-block;
+            color: #FFF;
+            padding: 4px;
+            padding-top: 5px;
+            margin: 2px;
+            width: 12px;
+            font-size: 8;
+            text-align: center;
+        }
+
+        ul {
+            display: flex;
+            height: 180px;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+<body>
+    <input type="text" id="numinput" />
+    <button id="leftin">左侧入</button>
+    <button id="leftout">左侧出</button>
+    <button id="rightin">右侧入</button>
+    <button id="rightout">右侧出</button>
+    <button id="random">随机生成一组数据</button>
+    <button id="sortdata">排序</button><br />
+    <ul>
+
+    </ul>
+
+    <script>
+        $ = function (el) { return document.querySelector(el); };
+
+        var data = [];//定义存放数据的数组
+        //随机颜色函数
+        function rancolor() {
+            var colorList = ['#16324a', '#24385e', '#393f65', '#4e4a67', '#5a4563', '#b38e95',
+              '#edae9e', '#c1b9c2', '#bec3cb', '#9ea7bb', '#99b4ce', '#d7f0f8'];
+            var i = Math.floor(Math.random() * 12);
+            return colorList[i];
+        }
+        //数据更新函数
+        function update() {
+            $("ul").innerHTML = "";
+            for (i = 0; i < data.length - 1; i++) {
+                var li = document.createElement("li");
+                li.innerText = data[i];
+                li.style.height = data[i] * 1.6+"px";
+                li.style.background = rancolor();
+                $("ul").appendChild(li);
+            }
+            $("#numinput").value = "";
+        }
+        //输入及处理数据函数
+        function inputnum() {
+            input = $("#numinput").value.trim();
+            if (data.length >= 60) { alert("数据已满"); return 0; }
+            if (input > 100 || input < 10) { alert("请输入10-100之间的数字"); return 0; }
+            if ((input == "") || isNaN(input)) { alert("输入不合法");return 0;}
+        }
+        //随机生成数据
+        $("#random").onclick = function () {
+            for (i = 0; i <= 50; i++) {
+                data[i] = Math.floor(Math.random() * 90+ 10);
+            }
+            update();
+        };
+        //数组数据处理
+        var lin = $("#leftin").onclick = function () {
+            if (inputnum() == 0) return;
+            data.splice(0, 0, input);
+            update();
+        };
+        var rin = $("#rightin").onclick = function () {
+            if (inputnum() == 0) return;
+            data.push(input);
+            update();
+        };
+        var lout = $("#leftout").onclick = function () {
+            alert(data.splice(0, 1));
+            update;
+        };
+        var rout = $("#rightout").onclick = function () {
+            alert(data.pop());
+            update();
+        }
+        //排序算法
+        $("#sortdata").onclick = function () {
+            var i = 0, j = 0, temp;
+            len = data.length;
+            timer = null;
+            timer = setInterval(run, 25);
+            function run() {
+                if (i < len) {
+                    if (j < len) {
+                        if (data[i] > data[j]) {
+                            temp = data[i];
+                            data[i] = data[j];
+                            data[j] = temp;
+                            update();
+                        }
+                        j++;
+                    } else {
+                        i++;
+                        j = i + 1;
+                    }
+                } else {
+                    clearInterval(timer);
+                    return;
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>任务三十七：UI组件之浮出层</title>
+    <style>
+        body{
+    min-height:2000px;
+    color: #333;
+    font-size:16px;
+    font-family: 'Microsoft YaHei', 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+header{
+    height:50px;
+    background-color:#007d60;
+    padding:0 15%;
+    margin-bottom: 50px;
+}
+
+.signin-link a{
+    display:inline-block;
+    text-align:center;
+    width:3em;
+    color:#fff;
+    font:1.5rem/3.125rem 'Microsoft YaHei';
+    text-decoration:none;
+}
+.signin-link a:hover{
+    background-color:#0AAF88;
+}
+p{
+    width: 70%;
+    margin: 0 auto;
+    line-height: 24px;
+}
+.mask{
+    width:100%;
+    background-image:linear-gradient(to right,rgba(100,100,100,0.15),rgba(100,80,100,0.1),rgba(100,150,200,0.3)),
+        linear-gradient(to right top,rgba(100,100,100,0.1),rgba(100,80,100,0),rgba(100,200,200,0.3));
+    position:fixed;
+    z-index:1000;
+    top:0;
+}
+.login-box{
+    border:2px solid #999;
+    border-radius: 5px;
+    width:300px;
+    height:200px;
+    background-color:#fff;
+    position:fixed;
+    z-index:2000;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.login-box-header{
+    height:40px;
+    cursor:move;
+    
+}
+
+.login-box-header p{
+    width:100%;
+    font-size:18px;
+    margin: 0;
+    line-height: 40px;
+    text-indent:1em;
+}
+.close-btn{
+    width:28px;
+    height:28px;
+    margin: 6px;
+    line-height:28px;
+    float: right;
+    background: #fff;
+    color: #f1b867;
+    border: 1px solid #f1b867;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.close-btn:hover{
+    color: #fff;
+    background: #f1b867;
+}
+.login-content{
+    box-sizing:border-box;
+    padding:10px 15% 0;
+}
+.login-content input{
+    width:100%;
+    height:30px;
+    margin:5px 0;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, .25);
+    outline: none;
+}
+.login-content input:focus{
+    border-color: #66afe9;
+}
+.login-content input[type="text"]{
+    text-indent: 1em;
+}
+.login-content input[type="password"]{
+    text-indent: 1em;
+}
+.login-content input[type="button"]{
+    background: #0275d8;
+    color: #fff;
+    border: 1px solid rgba(0, 0, 0, .15);
+    outline: none;
+}
+.resizable-right{
+    position:absolute;
+    top:0;
+    right:0;
+    width:2px;
+    height:calc(100% - 10px);
+    background-color:#999;
+    cursor:e-resize;
+    margin-right:-2px;
+}
+.resizable-bottom{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:calc(100% - 10px);
+    height:2px;
+    background-color:#999;
+    cursor:s-resize;
+    margin-bottom:-2px;
+}
+.resizable-right-bottom{
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:10px;
+    height:10px;
+    background-image:url(../image/task_3_37_1.png);
+    cursor:se-resize;
+    margin-right:-2px;
+    margin-bottom:-2px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li class="signin-link" id="loginLink">
+                <a href=""> 登录</a>
+            </li>
+        </ul>
+    </header>
+    <p>点击半透明遮罩或浮出层顶部关闭按钮,关闭浮出层</p>
+    <p>点击页面深绿色头部登录按钮,显示浮出层</p>
+    <p>拖拽浮出层顶部,可使其移动</p>
+    <p>拖拽浮出层右边框或下边框,可改变其大小</p>
+
+    <div class="mask" id="mask"></div>
+    <div class="login-box" id="loginBox">
+        <div class="login-box-header" id="loginBoxHeader">
+            <p>登录<input class="close-btn" id="closeBtn" type="button" value="X" /></p>
+        </div>
+
+        <div class="login-content">
+            <form method="post" action="/">
+                <input type="text" name="username" placeholder="请输入用户名" />
+                <input type="password" name="password" placeholder="请输入密码" />
+                <input type="button" value="登录" />
+            </form>
+        </div>
+    </div>
+
+
+
+    <script>
+        function $(el) {
+            return document.getElementById(el);
+        }
+        $('mask').onclick = $('closeBtn').onclick = function () {
+            $('mask').style.display = 'none';
+            $('loginBox').style.display = 'none';
+        }
+        $('loginLink').onclick = function () {
+            $('mask').style.display = 'block';
+            $('loginBox').style.display = 'block';
+        }
+        //自动居中
+        function autoCenter(el) {
+            var bodyW = document.documentElement.clientWidth;
+            var bodyH = document.documentElement.clientHeight;
+
+            var elW = el.offsetWidth;
+            var elH = el.offsetHeight;
+            el.style.left = (bodyW - elW) / 2 + 'px';
+            el.style.top = (bodyH - elH) / 2 + "px";
+        }
+        //自动全屏
+        function fillToBody(el) {
+            el.style.width = document.documentElement.clientWidth + 'px';
+            el.style.height = document.documentElement.clientHeight + 'px';
+        }
+        var mouseOffsetX = 0;
+        var mouseOffsetY = 0;
+        var isDraging = false;
+        $('loginBoxHeader').addEventListener('mousedown', function (e) {
+            var e = e || window.event;
+            mouseOffsetX = e.pageX - $('loginBox').offsetLeft;
+            mouseOffsetY = e.pageY - $('loginBox').offsetTop;
+            isDraging = true;
+        })
+
+        document.onmousemove = function (e) {
+            var e = e || window.event;
+            mouseX = e.pageX;
+            mouseY = e.pageY;
+            var moveX = 0;
+            var moveY = 0;
+            if (isDraging === true) {
+                moveX = mouseX - mouseOffsetX;
+                moveY = mouseY - mouseOffsetY;
+                var pageWidth = document.documentElement.clientWidth;
+                var pageHeight = document.documentElement.clientHeight;
+
+                var loginBoxWidth = $('loginBox').offsetWidth;
+                var loginBoxHeight = $('loginBox').offsetHeight;
+                var maxMoveX = pageWidth - loginBoxWidth;
+                var maxMoveY = pageHeight - loginBoxHeight;
+                moveX = Math.min(maxMoveX, Math.max(0, moveX));
+                moveY = Math.min(maxMoveY, Math.max(0, moveY));
+                $("loginBox").style.left = moveX + "px";
+                $("loginBox").style.top = moveY + "px";
+            }
+        }
+        var mousePanel, mouseCtrl, mouseType;
+        var moving = 0, mouseStartX = 0, mouseStartY = 0;
+        function onMouseDown(e, panel, ctrl, type) {
+            var e = e || window.event;
+
+            mouseStartX = e.pageX - ctrl.offsetLeft;
+            mouseStartY = e.pageY - ctrl.offsetTop;
+
+            mousePanel = panel;
+            mouseCtrl = ctrl;
+            mouseType = type;
+
+            moving = setInterval(onMove, 10);
+        }
+
+        function onMove() {
+            if (moving) {
+                var toX = mouseX - mouseStartX;
+                var toY = mouseY - mouseStartY;
+                //限定浮出层最大宽高度
+                var maxToX = document.documentElement.clientWidth - mousePanel.offsetLeft - 10;
+                var maxToY = document.documentElement.clientHeight - mousePanel.offsetTop - 10;
+
+                toX = Math.min(maxToX, Math.max(toX, 300));
+                toY = Math.min(maxToY, Math.max(toY, 200));
+
+                switch (mouseType) {
+                    case "r":
+                        mouseCtrl.style.left = toX + "px";
+                        mousePanel.style.width = toX + "px";
+                        break;
+                    case "b":
+                        mouseCtrl.style.top = toY + "px";
+                        mousePanel.style.height = toY + "px";
+                        break;
+                    case "rb":
+                        console.log(mouseCtrl.style.left);
+                        mouseCtrl.style.left = toX - 8 + "px";
+                        mouseCtrl.style.top = toY - 8 + "px";
+                        mousePanel.style.width = toX + "px";
+                        mousePanel.style.height = toY + "px";
+                        break;
+                }
+            }
+        }
+
+        document.onmouseup = function () {
+            isDraging = false;
+
+            clearInterval(moving);
+            moving = 0;
+            var cls = document.getElementsByClassName("resizable-box");
+            for (var i = 0; i < cls.length; i++) {
+                cls[i].style.left = "";
+                cls[i].style.top = "";
+            }
+        }
+
+        function resizable(el) {
+            var panel = el;
+            var rightBox = document.createElement("div");
+            var bottomBox = document.createElement("div");
+            var rightBottomBox = document.createElement("div");
+            rightBox.class = rightBox.className = "resizable-right resizable-box";
+            bottomBox.class = bottomBox.className = "resizable-bottom resizable-box";
+            rightBottomBox.class = rightBottomBox.className = "resizable-right-bottom resizable-box";
+
+            panel.appendChild(rightBox);
+            panel.appendChild(bottomBox);
+            panel.appendChild(rightBottomBox);
+
+            rightBox.addEventListener("mousedown", function (e) {
+                onMouseDown(e, panel, rightBox, "r");
+            })
+            bottomBox.addEventListener("mousedown", function (e) {
+                onMouseDown(e, panel, bottomBox, "b");
+            })
+            rightBottomBox.addEventListener("mousedown", function (e) {
+                onMouseDown(e, panel, rightBottomBox, "rb");
+            })
+        }
+
+        //*******************************************************************************
+
+        window.onload = window.onresize = function () {
+            autoCenter($("loginBox"));
+            fillToBody($("mask"));
+            resizable($("loginBox"));
+        }
+    </script>
+</body>
+</html>

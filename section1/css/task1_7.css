@@ -1,0 +1,522 @@
+﻿body{
+    min-width:1280px;
+    margin:0 auto;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+.header{
+    width:100%;
+    height:55px;
+    
+}
+.header div{
+    display:inline-block;
+}
+.header .logo{
+    height:55px;
+    width:110px;
+    margin-left:60px;
+    font-size:21px;
+    font-family:SimHei;
+}
+.header .logo img{
+    vertical-align:middle;
+}
+.header .logo span{
+    color:#393a3a;
+    margin-left:10px;
+    line-height:55px;
+}
+.header .login{
+    height:55px;
+    font-size:14px;
+    color:#e74f4d;
+    margin-right:65px;
+    padding-left:25px;
+    font-family:"Microsoft YaHei";
+    line-height:55px;
+    background:url(../img/task1_7/login.png) no-repeat 0 18px;
+}
+.header .menu{
+    float:right;
+}
+.header .menu ul li{
+    display:inline-block;
+    color:#83868d;
+    font-size:14px;
+    font-family:'Microsoft YaHei';
+    margin-right:40px;
+    line-height:55px;
+}
+.header .menu ul li:first-child{
+    text-align:center;
+    width:63px;
+    border-bottom:3px solid #e74f4d;
+}
+.main .content1{
+    width:1280px;
+    height:690px;
+    background-image:url(../img/task1_7/background_1.jpg);
+    background-color:rgba(4,0,0,02);
+    font-family:'Microsoft YaHei';
+}
+.main .content1 h2{
+    color:#fff;
+    font-size:60px;
+    padding-top:225px;
+    margin-left:110px;
+    padding-bottom:25px;
+}
+.main .content1 p{
+    color:#fffdfd;
+    margin-left:110px;
+    font-size:21px;
+    line-height:30px;
+}
+.main .content1 div{
+    width:330px;
+    height:65px;
+    line-height:65px;
+    background:#e7504d;
+    margin-left:110px;
+    margin-top:70px;
+    color:#fff;
+    text-align:center;
+    font-size:30px;
+}
+.main .content2 .cube{
+    display:inline-block;
+    width:24.7%;
+    height:250px;
+    font-size:14px;
+    font-family:SimHei;
+    color:#767777;
+}
+.main .content2 .cube .logo{
+    width:42px;
+    height:42px;
+    margin:45px auto;
+}
+.main .content2 .cube #logo_1{
+    background:url(../img/task1_7/logo_2_1.png) no-repeat;
+}
+.main .content2 .cube #logo_2{
+    background:url(../img/task1_7/logo_2_2.png) no-repeat;
+}
+.main .content2 .cube #logo_3{
+    background:url(../img/task1_7/logo_2_3.png) no-repeat;
+}
+.main .content2 .cube #logo_4{
+    background:url(../img/task1_7/logo_2_4.png) no-repeat;
+}
+.main .content2 .cube .text{
+    width:100%;
+    height:50px;
+    margin:0 auto;
+    text-align:center;
+}
+.main .content2 .cube .left-border{
+    border-left:1px solid #999;
+}
+.main .content3{
+    width:100%;
+    height:360px;
+    background-color:#ededed;
+    text-align:center;
+}
+.main .content3 img{
+    padding-top:90px;
+    padding-bottom:50px;
+}
+.main .content3 p{
+    color:#a1a1a1;
+    font-size:54px;
+    font-family:SimHei;
+}
+.main .content4{
+    font-family:'Microsoft YaHei';
+    width:100%;
+    height:340px;
+    text-align:center;
+    background:url(../img/task1_7/background_2.jpg) no-repeat;
+}
+.main .content4 .title{
+    padding-top:50px;
+    width:100%;
+    color:#fff;
+    font-size:21px;
+}
+.main .content4 .line{
+    margin:10px auto;
+    width:30px;
+    border-top:1px solid #fff;
+}
+.main .content4 .sub_title{
+    width:100%;
+    margin-top:18px;
+    color:#fff;
+    font-size:12px;
+}
+.main .content4 .selector-container{
+    display:inline-block;
+    width:100%;
+    padding-top:50px;
+}
+.main .content4 .selector-container>div{
+     display:inline-block;
+     width:232px;
+     height:32px;
+     line-height:36px;
+}
+.main .content4 .selector-container .selector{
+    border:2px solid #fff;
+    text-align:left;
+    background:#fff;
+    color:#a8aaaa;
+    font-size:12px;
+    margin-right:20px;
+    padding:0 10px;
+}
+.main .content4 .selector-container .selector:hover{
+    border: 2px solid #be4e48;
+}
+
+.main .content4 .selector-container .selector .arrow{
+    float:right;
+    width:18px;
+    height:18px;
+    background:url(../img/task1_7/arrow.png) no-repeat;
+    margin-top:9px;
+}
+.main .content4 .selector-container .button{
+    text-align:center;
+    border:2px solid #be4e48;
+    background:#be4e48;
+    color:#fff;
+    font-size:14px;
+}
+.main .content5{
+    height:500px;
+    padding-top:100px;
+    text-align:center;
+    background:#f8f8f7;
+}
+.main .content5 .photo{
+    display:inline-block;
+    margin-right:35px;
+}
+.main .content5 .photo .title{
+    padding:10px;
+    font-size:14px;
+    font-family:'Microsoft YaHei';
+}
+.main .content5 .photo .subtitle{
+    font-size:12px;
+    font-family:'Microsoft YaHei';
+    color:#9e9f9f;
+}
+.main .content5 .photo>div{
+    background:#fff;
+    padding:12px 9px;
+    border:1px solid #dadada;
+}
+.main .content5 #photo_sh .title{
+    font-size:22px;
+}
+.main .content5 #photo_sh  .subtitle{
+    padding-bottom:10px;
+}
+.main .content6{
+    width:100%;
+    height:560px;
+    position:relative;
+}
+.main .content6 .slide{
+    font-family:'Microsoft YaHei';
+    color:#fff;
+    display:inline-block;
+    width:66.6%;
+    text-align:center;
+    height:100%;
+    background:url(../img/task1_7/image_1.jpg) no-repeat;
+}
+
+.main .content6 .slide .h1{
+    font-size:50px;
+    padding-top:130px;
+}
+.main .content6 .slide .h2{
+    font-size:158px;
+    line-height:158px;
+}
+.main .content6 .slide .h3{
+    font-size:22px;
+    text-align:center;
+}
+.main .content6 .slide .tri{
+    float:right;
+    margin-top:280px;
+    width:0px;
+    height:0px;
+    border-top:24px solid transparent;
+    border-bottom:24px solid transparent;
+    border-right:30px solid #fff;
+}
+.main .content6 .text{
+    display:inline-block;
+    width:33%;
+    text-align:center;
+    vertical-align:top;
+    height:100%;
+}
+.main .content6 .text .h1{
+    margin-top:165px;
+    font-size:22px;
+}
+.main .content6 .text .h1 .num{
+    color:#e7504d;
+}
+.main .content6 .text .h1 .a{
+    display:inline-block;
+    width:60px;
+    font-stretch:extra-condensed;
+}
+.main .content6 .text .h2{
+    font-family:SimSun;
+    font-size:12px;
+    padding:30px;
+    line-height:30px;
+    width:290px;
+    text-align:left;
+    margin:0 auto;
+}
+.main .content6 .text .more{
+    width:107px;
+    height:35px;
+    border:1px solid #e25c60;
+    margin:0 auto;
+    font-size:12px;
+    line-height:35px;
+    color:#e25c60;
+}
+.main .content6 .text .tab{
+    margin:25px auto;
+}
+.main .content6 .text .tab .button{
+    display:inline-block;
+    height:10px;
+    width:10px;
+    border:1px solid #b5b5b5;
+    border-radius:10px;
+    margin:10px;
+}
+.main .content6 .text .tab .button1{
+    background:#b5b5b5;
+}
+.main .content7{
+    margin-top:0;
+    width:100%;
+    height:520px;
+}
+.main .content7 .container{
+    vertical-align:top;
+    text-align:center;
+    display:inline-block;
+    width:33%;
+    height:100%;
+    font-family:SimHei;
+    font-size:21px;
+    background:#e74f4d;
+    color:#fff;
+}
+.main .content7 .container:last-child{
+    background:url(../img/task1_7/image_2.jpg) no-repeat;
+}
+.main .content7 .container:last-child .bg{
+    height:100%;
+    width:100%;
+    background-color:rgba(3,0,0,0.4);
+}
+.main .content7 .container p{
+    padding-top:170px;
+    line-height:30px;
+}
+.main .content7 .container .line{
+    width:31px;
+    border:1px solid #fff;
+    margin:24px auto;
+}
+.main .content7 .container .more{
+    width:170px;
+    height:40px;
+    margin:25px auto;
+    line-height:40px;
+    border:1px solid #fff;
+}
+.main .content7 #container_2{
+    background:#fff;
+    color:#e74f4d;
+}
+.main .content7 #container_2 .line{
+    border:1px solid #e74f4d;
+}
+.main .content7 #container_2 .more{
+    border:1px solid #e74f4d;
+}
+.main .content7 .container .tri{
+    float:left;
+    margin-top:265px;
+    width:0px;
+    height:0px;
+    border-top:24px solid transparent;
+    border-bottom:24px solid transparent;
+    border-left:30px solid #fff;
+}
+.main .content8{
+    width:100%;
+    height:750px;
+}
+.main .content8 h1{
+    text-align:center;
+    font-size:21px;
+    font-family:SimHei;
+    padding-top:115px;
+}
+.main .content8 .line{
+    width:30px;
+    margin:10px auto;
+    border:1px solid #e74f4d;
+}
+.main .content8 p{
+    text-align:center;
+    font-family:'Microsoft YaHei';
+    font-size:12px;
+    color:#aaa;
+}
+.main .content8 .content{
+    width:1000px;
+    margin:100px auto;
+}
+.main .content8 .content table tr td{
+    text-align:left;
+    width:330px;
+    height:55px;
+}
+.main .content8 .content table h2{
+    font-family:SimHei;
+    font-size:14px;
+    color:#231815;
+}
+.main .content8 .content table p{
+    font-family:SimSun;
+    font-size:12px;
+    text-align:left;
+}
+.main .content8 .content table a{
+    font-family:SimSun;
+    font-size:12px;
+    color:#231815;
+    float:right;
+}
+.main .content8 .content table input{
+    font-family:SimSun;
+    font-size:12px;
+    color:#231815;
+    width:295px;
+    height:40px;
+    background:#edecee;
+    border-style:none;
+    padding-left:15px;
+}
+.main .content8 .content table textarea{
+    width:624px;
+    height:105px;
+    background:#edecee;
+    border-style:none;
+    padding-left:15px;
+    margin-top:5px;
+    padding-top:15px;
+}
+.main .content8 .content table button{
+    width:640px;
+    height:40px;
+    background:#edecee;
+    border-style:none;
+}
+.main .content8 .content table tr td:first-child{
+    padding-right:60px;
+}
+.footer{
+    color:#fff;
+    width:100%;
+    height:416px;
+    background:#32353e;
+    text-align:center;
+    position:relative;
+}
+.footer h2{
+    font-family:SimHei;
+    font-size:21px;
+    padding-top:90px;
+}
+.footer p{
+    font-family:SimSun;
+    font-size:12px;
+    padding-top:10px;
+    line-height:19px;
+}
+.footer .form{
+    margin-top:30px;
+}
+.footer .form input{
+    width:420px;
+    height:40px;
+    border:none;
+    padding-left:10px;
+    float:left;
+    margin-left:385px;
+}
+.footer .form button{
+    color:#fff;
+    font-family:'Microsoft YaHei';
+    padding:0;
+    font-size:15px;
+    border:none;
+    width:80px;
+    height:42px;
+    background:#6f7178;
+    float:left;
+}
+.footer .share{
+    clear:both;
+}
+.footer .share img{
+    padding-top:37px;
+    padding-right:30px;
+}
+.footer  .share img:last-child{
+    padding-right:0
+}
+.footer .copyright{
+    width:100%;
+    height:58px;
+    position:absolute;
+    background:#2f2f38;
+    bottom:0;
+    font-family:SimSun;
+    font-size:12px;
+    line-height:58px;
+}
+.footer .copyright span{
+    float:left;
+    margin-left:100px;
+
+}
+.footer .copyright a{
+    float:right;
+    margin-right:40px;
+}

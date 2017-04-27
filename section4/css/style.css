@@ -1,0 +1,442 @@
+﻿@charset "UTF-8";
+*{
+    padding:0;
+    margin:0;
+    font-family:'Microsoft YaHei';
+    box-sizing:border-box;
+    vertical-align: baseline;
+    font-weight: inherit; 
+    font-family: inherit; 
+    font-style: inherit;
+    font-size: 100%;
+
+}
+body,html{
+    height:100%;
+    position:relative;
+    background:#efefef;
+}
+#main{
+    width:1040px;
+    margin:50px auto 0;
+    color:#626262;
+    font-size:16px;
+}
+button{
+    cursor:pointer;
+}
+
+/*header*/
+header{
+    width:100%;
+    height:45px;
+    background:#ee7419;
+    color:white;
+}
+header * {
+  margin-top: 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+header div{
+    margin-left:40px;
+    text-align:center;
+    color: #EE7419;
+    background:#fff;
+    border-radius:10px;
+    height:20px;
+    width:20px;
+}
+header h3{
+    font-size:20px;
+}
+header h4{
+    font-size:16px;
+    margin-left:40px;
+    font-weight:normal;
+}
+
+/*主页面list-page*/
+#list-page{
+    width:100%;
+}
+#list-page table{
+    width:100%;
+    border-collapse:collapse;
+}
+#list-page table th{
+    background:#efefef;
+    padding:25px;
+    text-align:left;
+}
+#list-page table th:last-child{
+    text-align:right;
+}
+#list-page th button:hover{
+    box-shadow: 0 0 5px #ee7419;
+}
+#list-page th button {
+    width:95px; 
+    background:#ee7419;
+    color:white;
+    border:1px solid #ee7419;
+    border-radius:3px;
+}
+#list-page td{
+    padding:10px 25px;
+    border-bottom:1px solid #cecece;
+}
+#list-page td:first-child{
+    width:400px;
+}
+#list-page td:last-child{
+    text-align:right;
+}
+#list-page tr{
+    background:#fff;
+}
+#list-page tr:hover{
+    background:rgba(238, 116, 25, 0.10);
+}
+#list-page  button{
+    width:66px;
+    border:1px solid #777;
+    border-radius:2px;
+    background:#fff;
+    color:#777;
+    padding-top:3px;
+    padding-bottom:3px;
+    margin:5px;
+}
+#list-page button:hover{
+    box-shadow:0 0 5px #ccc;
+}
+
+
+#list-page>div{
+    padding:10px 25px;
+    width:100%;
+    height:70px;
+    background:white;
+}
+#list-page>div button{
+    margin-left:20px;
+}
+
+
+
+
+
+
+/*内容页面questionnair-result*/
+#questionnair-result{
+    position:relative;
+    background:#fff;
+    margin-bottom:50px;
+}
+#questionnair-result-head{
+    height:85px;
+    padding-top:25px;
+    width:1000px;
+    border-bottom:2px solid #efefef;
+    margin:auto;
+    text-align:center;
+    position:relative;
+}
+#questionnair-result-head h3{
+    font-size:20px;
+    font-weight:600;
+}
+#questionnair-result-head h4{
+    font-weight:400;
+}
+#questionnair-result-head button{
+    position:absolute;
+    left:10px;
+    top:15px;
+    font-size:16px;
+    background:#fff;
+    border:none;
+}
+#questionnair-result-head button:hover{
+    color:#ee7419;
+    font-weight:bold;
+}
+
+
+#questionnair-result-content{
+    clear:both;
+}
+#questionnair-result-content>div{
+    width:960px;
+    margin:20px auto;
+    border:2px solid #efefef;
+    padding:15px;
+    position:relative;
+    line-height:1.5;
+}
+#questionnair-result-content h4{
+    font-size:16px;
+    font-weight:800;
+}
+#questionnair-result-content ul>li{
+    list-style:none;
+    margin-left:20px;
+}
+#questionnair-result-foot{
+    width:1000px;
+    height:100px;
+    margin:10px auto;
+    border-top:2px solid #efefef;
+    position:relative;text-align:center;
+}
+#questionnair-result-foot button {
+    width:100px;
+    background:#ee7419;
+    color:#fff;
+    border:none;
+    border-radius:5px;
+    line-height:1.5;
+    margin:30px auto;
+    
+}
+#questionnair-result-foot button:hover{
+    box-shadow:0 0 5px #ee7419;
+}
+
+/*新建页面new-build*/
+#new-build{
+    height:300px;
+    box-shadow:0 0 3px gray;
+    position:relative;
+    background:#fff;
+}
+#new-build button{
+    width:150px;
+    height:50px;
+    font-size:20px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    background:#ee7419;
+    color:#fff;
+    border-radius:5px;
+}
+#new-build button:hover{
+    box-shadow:0 0 5px #ee7419;
+}
+
+/*新建页面具体new-build-qn*/
+#new-build-qn{
+    background:#fff;
+    box-shadow:0 0 3px gray;
+}
+#new-build-qn-head{
+    position:relative;
+    border-bottom:2px solid #ccc;
+    width:1000px;
+    margin:auto;
+    text-align:center;
+    padding:15px 0 15px 20px;
+}
+#new-build-qn-head h3{
+    width:960px;
+    line-height:3;
+    text-align:center;
+    font-weight:bold;
+    font-size:20px;
+}
+#new-build-qn-head h3:hover{
+    background:rgba(238, 116, 25, 0.10);
+    cursor:pointer;
+}
+#new-build-qn-head input{
+    background:#efefef;
+    position:absolute;
+    height:50px;
+    width:960px;
+    top:20px;
+    left:20px;
+    border:none;
+    text-align:center;
+    line-height:3;
+}
+
+
+#new-build-btns {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 2px solid #CBCBCB;
+  position: relative; }
+#new-build-btns div:first-child button {
+  border: 1px solid #CBCBCB;
+  background-color: #EFEFEF;
+  width: 70px;
+  height: 30px;
+  margin: 20px 10px; }
+#new-build-btns div:first-child button:hover {
+  box-shadow: 0 0 3px gray; }
+#new-build-btns div:last-child {
+  width: 100%;
+  background-color: #EFEFEF;
+  padding: 20px; }
+#new-build-btns div:last-child button {
+  background-color: #EFEFEF;
+  border: none; }
+#new-build-btns div:last-child button:hover {
+  font-weight: 500; }
+
+#new-build-qn-foot{
+    margin:auto;
+    width:1000px;
+    border-top:2px solid #ccc;
+    padding:25px 25px 50px 25px;
+}
+#new-build-qn-foot input{
+    height:30px;
+    width:170px;
+    margin-left:10px;
+    padding-left:6px;
+}
+#new-build-qn-foot button{
+    border-style:none;
+    background:#fff;
+    font-size:14px;
+    width:100px;
+    float:right;
+    margin-right:30px;
+    padding:3px 10px;
+    border:1px solid #ccc;
+    border-radius:3px;
+}
+#new-build-qn-foot button:nth-child(1){
+    background:#fff;
+}
+#new-build-qn-foot button:nth-child(2){
+    background:#ee7419;
+}
+
+#new-build-content{
+    margin:auto;
+    width:960px;
+    padding:20px;
+    line-height:2;
+}
+#new-build-content h4{
+    font-weight:bold;
+}
+#new-build-content label{
+    display:block;
+}
+#new-build-content>div{
+    position:relative;
+    padding:15px;
+}
+#new-build-content>div input{
+    margin-right:5px;
+}
+#new-build-content > div label, #new-build-content > div textarea {
+  margin-left: 30px; }
+#new-build-content > div textarea{
+    width:400px;
+    height:150px;
+}
+#new-build-content > div:hover{
+    background:rgba(238, 116, 25, 0.10);
+}
+#new-build-content ul{
+    margin-left:700px;
+}
+#new-build-content li{
+    list-style:none;
+    display:inline-block;
+    margin-right:10px;
+}
+#new-build-content li a{
+    cursor:pointer;
+}
+#new-build-content li a:hover{
+    text-shadow:0 0 2px #626262;
+}
+#new-build-content li:last-child a:hover{
+    color:red;
+    text-shadow:0 0 2px red;
+}
+
+#new-build-content .new-build-ne{
+    position:absolute;
+    right:30px;
+    top:15px;
+}
+
+/*遮罩层*/
+.darken{
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    position:absolute;
+    background:rgba(0, 0, 0, 0.50);
+}
+.darken .float-out{
+    background:#fff;
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:400px;
+    transform:translate(-50%,-50%);
+    border-radius:5px;
+    font-size:14px;
+}
+.darken .float-out>div:first-child{
+    font-weight:bold;
+    width:100%;
+    height:50px;
+    padding:15px;
+    background:#efefef;
+    color:#626262;
+    border-radius:5px 5px 0 0;
+}
+.darken .float-out b{
+    float:right;
+    cursor:pointer;
+}
+.darken .float-out b:hover{
+    color:red;
+}
+.darken .float-out div:nth-child(2){
+    line-height:2;
+    padding:15px;
+}
+.darken .float-out > div:nth-child(2) label {
+  display: block; }
+.darken .float-out > div:nth-child(2) label:last-child {
+  margin-left: 28px; }
+.darken .float-out > div:nth-child(2) input {
+  margin-top: 17px;
+  margin-left: 15px; }
+.darken .float-out > div:nth-child(3) {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px; }
+.darken .float-out > div:nth-child(3) > button{
+    outline:0;
+    font-size:14px;
+    line-height:1.5;
+    border:1px solid #ccc;
+    width: 70px;
+    border-radius:5px;
+}
+.darken .float-out > div:nth-child(3) > button:first-child {
+    background:#ee7419;
+    color:#fff;
+    margin-right: 15px; }
+.darken .float-out > div:nth-child(3) > button:last-child {
+    background:#fff;
+    width: 70px;
+}
